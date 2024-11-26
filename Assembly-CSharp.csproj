@@ -59,6 +59,9 @@
     <Analyzer Include="C:\Program Files\Unity\Hub\Editor\2022.3.51f1\Editor\Data\Tools\Unity.SourceGenerators\Unity.Properties.SourceGenerator.dll" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\02.Script\GPS\GPSConverter.cs" />
+    <Compile Include="Assets\02.Script\DroneControler\GPS_Movement.cs" />
+    <Compile Include="Assets\02.Script\DroneControler\UDP_Receiver.cs" />
     <Compile Include="Assets\02.Script\SetTerrainHeightFromPNG.cs" />
   </ItemGroup>
   <ItemGroup>
