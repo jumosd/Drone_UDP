@@ -5,17 +5,16 @@ using UnityEngine;
 
 public class UDPReceiver : MonoBehaviour
 {
-    public string IP = "127.0.0.1"; // ¼ö½ÅÇÒ IP (·ÎÄÃ Å×½ºÆ®¿ë)
-    public int port = 8051; // ¼ö½ÅÇÒ Æ÷Æ®
+    public string IP = "127.0.0.1"; // ìˆ˜ì‹ í•  IP ì£¼ì†Œ (ê¸°ë³¸ í…ŒìŠ¤íŠ¸ìš©)
+    public int port = 8051; // ìˆ˜ì‹ í•  í¬íŠ¸
     private UdpClient udpClient;
     private IPEndPoint remoteEndPoint;
-    public Vector3 targetPosition; // µå·ĞÀÌ ÀÌµ¿ÇÒ ¸ñÇ¥ À§Ä¡
+    public Vector3 targetPosition; // ìˆ˜ì‹ í•œ ë°ì´í„°ë¥¼ ê¸°ë°˜ìœ¼ë¡œ ì´ë™í•  ëª©í‘œ ìœ„ì¹˜
 
     void Start()
     {
-        // UDP Å¬¶óÀÌ¾ğÆ® ÃÊ±âÈ­
+        // UDP í´ë¼ì´ì–¸íŠ¸ ì´ˆê¸°í™”
         udpClient = new UdpClient(port);
         remoteEndPoint = new IPEndPoint(IPAddress.Any, port);
     }
-
 }

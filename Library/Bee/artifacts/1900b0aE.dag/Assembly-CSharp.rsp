@@ -353,6 +353,7 @@
 -analyzer:"C:/Program Files/Unity/Hub/Editor/2022.3.51f1/Editor/Data/Tools/Unity.SourceGenerators/Unity.Properties.SourceGenerator.dll"
 -analyzer:"C:/Program Files/Unity/Hub/Editor/2022.3.51f1/Editor/Data/Tools/Unity.SourceGenerators/Unity.SourceGenerators.dll"
 "Assets/02.Script/DroneControler/GPS_Movement.cs"
+"Assets/02.Script/DroneControler/HeadingIndicator.cs"
 "Assets/02.Script/DroneControler/UDP_Receiver.cs"
 "Assets/02.Script/GPS/GPSConverter.cs"
 "Assets/02.Script/SetTerrainHeightFromPNG.cs"

@@ -1,29 +1,28 @@
 using UnityEngine;
 
-
 namespace Utilities
-{ 
+{
     public class GPSConverter
     {
-        // GPS °æ°è°ª (À§µµ, °æµµ)
-        public static Vector2 topLeftGPS = new Vector2(37.277144f, 126.271944f);  // 0,0±âÁØ ¿ùµåÁÂ»ó´Ü
-        public static Vector2 bottomRightGPS = new Vector2(37.241341f, 126.348519f);  // 0,0±âÁØ ¿ùµå ¿ìÇÏ´Ü
+        // GPS ê²½ê³„ê°’ (ìœ„ë„, ê²½ë„)
+        public static Vector2 topLeftGPS = new Vector2(37.2771f, 126.2720f);  // ë¶ì„œë‹¨
+        public static Vector2 bottomRightGPS = new Vector2(37.241341f, 126.348519f);  // ë‚¨ë™ë‹¨
 
-        // Terrain Å©±â
-        public static Vector2 terrainSize = new Vector2(7200f, 4000f);  // TerrainÀÇ Å©±â (X, Z)
+        // Terrain í¬ê¸°
+        public static Vector2 terrainSize = new Vector2(7200f, 4000f);  // Terrainì˜ í¬ê¸° (X, Z)
 
-        // GPS ¡æ Unity ¿ùµå ÁÂÇ¥ º¯È¯ ÇÔ¼ö
+        // GPS â†’ Unity ì›”ë“œ ì¢Œí‘œ ë³€í™˜ í•¨ìˆ˜
         public static Vector3 GPSToWorldPosition(float latitude, float longitude, float altitude)
         {
-            // XÃà: °æµµ ¡æ Unity XÃà
+            // Xì¶•: ê²½ë„ â†’ Unity Xì¶•
             float x = Mathf.InverseLerp(bottomRightGPS.y, topLeftGPS.y, longitude) * terrainSize.x;
-            // ZÃà: À§µµ ¡æ Unity ZÃà
+            // Zì¶•: ìœ„ë„ â†’ Unity Zì¶•
             float z = Mathf.InverseLerp(bottomRightGPS.x, topLeftGPS.x, latitude) * terrainSize.y;
-            // YÃà: °íµµ ¡æ Unity YÃà
+            // Yì¶•: ê³ ë„ â†’ Unity Yì¶•
             return new Vector3(x, altitude, z);
         }
 
-        // Unity ¿ùµå ÁÂÇ¥ ¡æ GPS º¯È¯ ÇÔ¼ö
+        // Unity ì›”ë“œ ì¢Œí‘œ â†’ GPS ë³€í™˜ í•¨ìˆ˜
         public static Vector3 WorldPositionToGPS(float x, float z, float altitude)
         {
             float longitude = Mathf.Lerp(bottomRightGPS.y, topLeftGPS.y, x / terrainSize.x);
