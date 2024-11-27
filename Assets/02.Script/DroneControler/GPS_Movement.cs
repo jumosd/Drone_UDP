@@ -1,32 +1,28 @@
 using UnityEngine;
 using Utilities;
 
-
 public class DroneMovement : MonoBehaviour
 {
     public UDPReceiver udpReceiver; // UDPReceiver 스크립트 참조
     public float moveSpeed = 1.0f;  // 드론 이동 속도
+
+    private Vector3 worldPosition; // GPS → Unity 변환 결과를 저장
+
     void Start()
     {
-        // GPS 좌표 (예제)
-        float gpsLatitude = 37.7745f;
-        float gpsLongitude = -122.4190f;
-        float gpsAltitude = 100f;
+        // GPS 좌표
+        float gpsLatitude = 37.257955f;
+        float gpsLongitude = 126.292536f;
+        float gpsAltitude = 150f;
 
         // GPS → Unity 월드 좌표 변환
-        Vector3 worldPosition = GPSConverter.GPSToWorldPosition(gpsLatitude, gpsLongitude, gpsAltitude);
+        worldPosition = GPSConverter.GPSToWorldPosition(gpsLatitude, gpsLongitude, gpsAltitude);
         Debug.Log($"GPS: ({gpsLatitude}, {gpsLongitude}, {gpsAltitude}) -> World: {worldPosition}");
-
-        // Unity 월드 좌표 → GPS 변환
-        Vector3 gpsPosition = GPSConverter.WorldPositionToGPS(worldPosition.x, worldPosition.z, worldPosition.y);
-        Debug.Log($"World: {worldPosition} -> GPS: ({gpsPosition.x}, {gpsPosition.y}, {gpsPosition.z})");
     }
+
     void Update()
     {
-        // 목표 위치로 부드럽게 이동
-        if (udpReceiver != null)
-        {
-            transform.position = Vector3.Lerp(transform.position, udpReceiver.targetPosition, moveSpeed * Time.deltaTime);
-        }
+        transform.position = Vector3.MoveTowards(transform.position, worldPosition, moveSpeed * Time.deltaTime);
     }
+    
 }

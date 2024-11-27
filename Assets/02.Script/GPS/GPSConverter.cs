@@ -6,8 +6,8 @@ namespace Utilities
     public class GPSConverter
     {
         // GPS 경계값 (위도, 경도)
-        public static Vector2 topLeftGPS = new Vector2(37.277144f, 126.271944f);  // 북서단
-        public static Vector2 bottomRightGPS = new Vector2(37.241341f, 126.348519f);  // 남동단
+        public static Vector2 topLeftGPS = new Vector2(37.277144f, 126.271944f);  // 0,0기준 월드좌상단
+        public static Vector2 bottomRightGPS = new Vector2(37.241341f, 126.348519f);  // 0,0기준 월드 우하단
 
         // Terrain 크기
         public static Vector2 terrainSize = new Vector2(7200f, 4000f);  // Terrain의 크기 (X, Z)
