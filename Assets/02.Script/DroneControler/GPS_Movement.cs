@@ -12,13 +12,14 @@ public class DroneMovement : MonoBehaviour
     void Start()
     {
         // GPS 좌표
-        float gpsLatitude = 37.269615f;
-        float gpsLongitude = 126.286030f;
+        float gpsLatitude = 37.257454f;
+        float gpsLongitude = 126.292169f;
         float gpsAltitude = 150f;
 
         // GPS → Unity 월드 좌표 변환
         targetPosition = GPSConverter.GPSToWorldPosition(gpsLatitude, gpsLongitude, gpsAltitude);
         Debug.Log($"GPS: ({gpsLatitude}, {gpsLongitude}, {gpsAltitude}) -> World: {targetPosition}");
+        Debug.Log(targetPosition.z);
     }
 
     void Update()
